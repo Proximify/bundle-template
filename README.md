@@ -2,7 +2,7 @@
 
 This article is all about how to structure your reusable bundles to be configurable and extendable. Reusable bundles are those meant to be shared privately across many company projects or publicly so any Symfony project can install them.
 
-# Bundle Name
+## Bundle Name
 
 A bundle is also a PHP namespace. The namespace must follow the PSR-4 interoperability standard for PHP namespaces and class names: it starts with a vendor segment, followed by zero or more category segments, and it ends with the namespace short name, which must end with Bundle.
 
@@ -29,7 +29,7 @@ By convention, the getName() method of the bundle class should return the class 
 
 Each bundle has an alias, which is the lower-cased short version of the bundle name using underscores (acme_blog for AcmeBlogBundle). This alias is used to enforce uniqueness within a project and for defining bundle’s configuration options (see below for some usage examples).
 
-# Directory Structure
+## Directory Structure
 
 The basic directory structure of an AcmeBlogBundle must read as follows:
 
@@ -78,7 +78,7 @@ The following classes and files have specific emplacements (some are mandatory a
 | Templates | `Resources/views/`|
 | Unit and Functional Tests	 | `Tests/`|
 
-# Classes
+## Classes
 
 The bundle directory structure is used as the namespace hierarchy. For instance, a ContentController controller which is stored in `Acme/BlogBundle/Controller/ContentController.php` would have the fully qualified class name of `Acme\BlogBundle\Controller\ContentController`.
 
@@ -90,13 +90,13 @@ Classes that connect to the event dispatcher should be suffixed with `Listener`.
 
 Exception classes should be stored in an `Exception` sub-namespace.
 
-# Vendors
+## Vendors
 
 A bundle must not embed third-party PHP libraries. It should rely on the standard Symfony autoloading instead.
 
 A bundle should also not embed third-party libraries written in JavaScript, CSS or any other language.
 
-# Tests
+## Tests
 
 A bundle should come with a test suite written with PHPUnit and stored under the Tests/ directory. Tests should follow the following principles:
 
@@ -108,7 +108,7 @@ A bundle should come with a test suite written with PHPUnit and stored under the
 <b>Note:</b> A test suite must not contain AllTests.php scripts, but must rely on the existence of a phpunit.xml.dist file.
 
 
-# Continuous Integration
+## Continuous Integration
 
 Testing bundle code continuously, including all its commits and pull requests, is a good practice called Continuous Integration. There are several services providing this feature for free for open source projects. The most popular service for Symfony bundles is called [Travis CI](https://travis-ci.org/).
 
@@ -174,19 +174,19 @@ script:
 
 Consider using the [Travis cron](https://docs.travis-ci.com/user/cron-jobs/) tool to make sure your project is built even if there are no new pull requests or commits.
 
-# Installation
+## Installation
 
 Bundles should set `"type": "symfony-bundle"` in their composer.json file. With this, [Symfony Flex](https://symfony.com/doc/current/setup.html#symfony-flex) will be able to automatically enable your bundle when it’s installed.
 
 If your bundle requires any setup (e.g. configuration, new files, changes to .gitignore, etc), then you should create a [Symfony Flex recipe](https://github.com/symfony/recipes).
 
-# Documentation
+## Documentation
 
 All classes and functions must come with full PHPDoc.
 
 Extensive documentation should also be provided in the Resources/doc/ directory. The index file (for example `Resources/doc/index.rst or Resources/doc/index.md)` is the only mandatory file and must be the entry point for the documentation. The [reStructuredText (rST)](https://symfony.com/doc/current/contributing/documentation/format.html) is the format used to render the documentation on the Symfony website.
 
-## Installation Instructions
+### Installation Instructions
 
 <pre>
 Installation
@@ -237,21 +237,21 @@ The example above assumes that you are installing the latest stable version of t
 Optionally, you can add more installation steps (Step 3, Step 4, etc.) to explain other required installation tasks, such as registering routes or dumping assets.
 
 
-# Routing
+## Routing
 
 If the bundle provides routes, they must be prefixed with the bundle alias. For example, if your bundle is called AcmeBlogBundle, all its routes must be prefixed with acme_blog_.
 
-# Templates
+## Templates
 
 If a bundle provides templates, they must use Twig. A bundle must not provide a main layout, except if it provides a full working application.
 
-# Translation Files
+## Translation Files
 
 If a bundle provides message translations, they must be defined in the XLIFF format; the domain should be named after the bundle name (`acme_blog`).
 
 A bundle must not override existing messages from another bundle.
 
-# Configuration
+## Configuration
 
 To provide more flexibility, a bundle can provide configurable settings by using the Symfony built-in mechanisms.
 
@@ -282,11 +282,11 @@ $container->getParameter('acme_blog.author.email');
 
 While this mechanism requires the least effort, you should consider using the more advanced [semantic bundle configuration](https://symfony.com/doc/current/bundles/configuration.html) to make your configuration more robust.
 
-# Versioning
+## Versioning
 
 Bundles must be versioned following the [Semantic Versioning Standard](https://semver.org/).
 
-# Services
+## Services
 
 If the bundle defines services, they must be prefixed with the bundle alias instead of using fully qualified class names like you do in your project services. For example, AcmeBlogBundle services must be prefixed with acme_blog. The reason is that bundles shouldn’t rely on features such as service autowiring or autoconfiguration to not impose an overhead when compiling application services.
 
@@ -296,7 +296,7 @@ Services should not use autowiring or autoconfiguration. Instead, all services s
 
 <b> Note: </b> You can learn much more about service loading in bundles reading this article: [How to Load Service Configuration inside a Bundle](https://symfony.com/doc/current/bundles/extension.html).
 
-# Composer Metadata
+## Composer Metadata
 
 The `composer.json` file should include at least the following metadata:
 
@@ -317,7 +317,7 @@ This information is used by Symfony to load the classes of the bundle. It’s re
 
 In order to make it easier for developers to find your bundle, register it on Packagist, the official repository for Composer packages.
 
-# Resources
+## Resources
 
 If the bundle references any resources (config files, translation files, etc.), don’t use physical paths (e.g. `__DIR__/config/services.xml`) but logical paths (e.g. @FooBundle/Resources/config/services.xml).
 
@@ -325,7 +325,7 @@ The logical paths are required because of the bundle overriding mechanism that l
 
 Beware that templates use a simplified version of the logical path shown above. For example, an index.html.twig template located in the `Resources/views/Default/` directory of the FooBundle, is referenced as `@Foo/Default/index.html.twig`.
 
-# Learn more
+## Learn more
 
 - [How to Load Service Configuration inside a Bundle](https://symfony.com/doc/current/bundles/extension.html)
 - [How to Create Friendly Configuration for a Bundle](https://symfony.com/doc/current/bundles/configuration.html)
