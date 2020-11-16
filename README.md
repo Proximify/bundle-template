@@ -21,7 +21,6 @@ Here are some valid bundle namespaces and class names:
 |--------------------------|-------------------|
 | `Acme\Bundle\BlogBundle` | AcmeBlogBundle    |
 | `Acme\BlogBundle`        | AcmeBlogBundle    |
-|                          |                   |
 
 
 By convention, the getName() method of the bundle class should return the class name.
@@ -41,7 +40,7 @@ Each bundle has an alias, which is the lower-cased short version of the bundle n
 The basic directory structure of an AcmeBlogBundle must read as follows:
 
 <pre>
-<your-bundle>/
+/ your-bundle
 ├─ AcmeBlogBundle.php
 ├─ Controller/
 ├─ README.md
@@ -120,7 +119,7 @@ A bundle should come with a test suite written with PHPUnit and stored under the
 
 Testing bundle code continuously, including all its commits and pull requests, is a good practice called Continuous Integration. There are several services providing this feature for free for open source projects. The most popular service for Symfony bundles is called [Travis CI] (https://travis-ci.org/).
 
-Here is the recommended configuration file (`.travis.yml<pre>) for Symfony bundles, which test the two latest LTS versions of Symfony and the latest beta release:
+Here is the recommended configuration file (`.travis.yml`) for Symfony bundles, which test the two latest LTS versions of Symfony and the latest beta release:
 
 <pre>
 language: php
