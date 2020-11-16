@@ -1,0 +1,27 @@
+{
+    "name": "proximify/[BUNDLE_NAME]",
+    "type": "symfony-bundle",
+    "description": "[DESCRIPTION]",
+    "authors": [
+       
+    ],
+    "require": {
+        
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5@dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "Proximify\\BUNDLE_NAME\\": ""
+        },
+        "exclude-from-classmap": [
+            "/Tests/"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Proximify\\BUNDLE_NAME\\Tests\\": "/Tests/"
+        }
+    }
+}

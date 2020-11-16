@@ -266,7 +266,7 @@ For simple configuration settings, rely on the default parameters entry of the S
 
 The end user can provide values in any configuration file:
 
-YAML: 
+<b>YAML: </b> 
 
 <pre>
 # config/services.yaml
@@ -274,7 +274,7 @@ parameters:
     acme_blog.author.email: 'fabien@example.com'
 </pre>
 
-PHP: 
+<b>PHP:</b> 
 
 <pre>
 // config/services.php
@@ -307,7 +307,7 @@ Services should not use autowiring or autoconfiguration. Instead, all services s
 
 The `composer.json` file should include at least the following metadata:
 
-`name`    
+`name`
 Consists of the vendor and the short bundle name. If you are releasing the bundle on your own instead of on behalf of a company, use your personal name (e.g. johnsmith/blog-bundle). Exclude the vendor name from the bundle short name and separate each word with an hyphen. For example: AcmeBlogBundle is transformed into blog-bundle and AcmeSocialConnectBundle is transformed into social-connect-bundle.
 
 `description`
@@ -332,7 +332,7 @@ The logical paths are required because of the bundle overriding mechanism that l
 
 Beware that templates use a simplified version of the logical path shown above. For example, an index.html.twig template located in the `Resources/views/Default/` directory of the FooBundle, is referenced as `@Foo/Default/index.html.twig`.
 
-Learn more
+# Learn more
 
 - [How to Load Service Configuration inside a Bundle](https://symfony.com/doc/current/bundles/extension.html)
 - [How to Create Friendly Configuration for a Bundle](https://symfony.com/doc/current/bundles/configuration.html)
