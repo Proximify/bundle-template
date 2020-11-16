@@ -25,11 +25,7 @@ Here are some valid bundle namespaces and class names:
 
 By convention, the getName() method of the bundle class should return the class name.
 
-<b>Note:</b> If you share your bundle publicly, you must use the bundle class name as the name of the repository (AcmeBlogBundle and not BlogBundle for instance).
-
-<pre>
-Symfony core Bundles do not prefix the Bundle class with Symfony and always add a Bundle sub-namespace; for example: Symfony\Bundle\FrameworkBundle\FrameworkBundle.
-</pre>
+<b>Note:</b> If you share your bundle publicly, you must use the bundle class name as the name of the repository (AcmeBlogBundle and not BlogBundle for instance). Also, Symfony core Bundles do not prefix the Bundle class with Symfony and always add a Bundle sub-namespace; for example: Symfony\Bundle\FrameworkBundle\FrameworkBundle.
 
 Each bundle has an alias, which is the lower-cased short version of the bundle name using underscores (acme_blog for AcmeBlogBundle). This alias is used to enforce uniqueness within a project and for defining bundle’s configuration options (see below for some usage examples).
 
