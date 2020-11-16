@@ -25,9 +25,7 @@ Here are some valid bundle namespaces and class names:
 
 By convention, the getName() method of the bundle class should return the class name.
 
-<pre>
 <b>Note:</b> If you share your bundle publicly, you must use the bundle class name as the name of the repository (AcmeBlogBundle and not BlogBundle for instance).
-</pre>
 
 <pre>
 Symfony core Bundles do not prefix the Bundle class with Symfony and always add a Bundle sub-namespace; for example: Symfony\Bundle\FrameworkBundle\FrameworkBundle.
@@ -111,13 +109,12 @@ A bundle should come with a test suite written with PHPUnit and stored under the
 - The tests should cover at least 95% of the code base.
 
 
-<pre>
 <b>Note:</b> A test suite must not contain AllTests.php scripts, but must rely on the existence of a phpunit.xml.dist file.
-</pre>
+
 
 # Continuous Integration
 
-Testing bundle code continuously, including all its commits and pull requests, is a good practice called Continuous Integration. There are several services providing this feature for free for open source projects. The most popular service for Symfony bundles is called [Travis CI] (https://travis-ci.org/).
+Testing bundle code continuously, including all its commits and pull requests, is a good practice called Continuous Integration. There are several services providing this feature for free for open source projects. The most popular service for Symfony bundles is called [Travis CI](https://travis-ci.org/).
 
 Here is the recommended configuration file (`.travis.yml`) for Symfony bundles, which test the two latest LTS versions of Symfony and the latest beta release:
 
